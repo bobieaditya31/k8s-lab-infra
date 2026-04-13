@@ -7,7 +7,7 @@ tls:
   enabled: false
 
 adminPassword:
-  existingSecret: "P@ssw0rd"
+  existingSecret: portainer-admin-password
 
 ingress:
   enabled: true
