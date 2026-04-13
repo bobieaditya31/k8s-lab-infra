@@ -1,0 +1,32 @@
+service:
+  type: ClusterIP
+  httpPort: 9000
+  httpsPort: 9443
+
+tls:
+  enabled: false
+
+adminPassword:
+  existingSecret: "P@ssw0rd"
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hosts:
+    - host: portainer.local
+      paths: /
+      pathType: Prefix
+
+resources:
+  limits:
+    cpu: 300m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+persistence:
+  enabled: true
+  size: "5Gi"
+  storageClass: nfs-client
+  accessMode: ReadWriteOnce

@@ -5,22 +5,17 @@ metadata:
   namespace: argocd
 
 spec:
-  project: default
+  project: my-homelab
 
   sources:
-    # 🔹 Helm Chart Portainer
-    - repoURL: https://portainer.github.io/k8s/
-      chart: portainer
-      targetRevision: 1.0.51
+    - repoURL: https://github.com/bobieaditya31/k8s-lab-infra/
+      path: charts/portainer
+      targetRevision: main
 
       helm:
+        releaseName: portainer
         valueFiles:
-          - $values/apps/portainer/values.yaml
-
-    # 🔹 Repo kamu (values.yaml)
-    - repoURL: https://github.com/bobieaditya31/k8s-lab
-      targetRevision: main
-      ref: values
+          - overrides-values.yaml
 
   destination:
     server: https://kubernetes.default.svc
@@ -30,6 +25,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
-    syncOptions:
-      - CreateNamespace=true
