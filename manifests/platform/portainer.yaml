@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 
 spec:
-  project: my-homelab
+  project: default
 
   sources:
     - repoURL: https://github.com/bobieaditya31/k8s-lab-infra/
