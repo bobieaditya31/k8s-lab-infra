@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: bobieaditya03/myapp
+  tag: v1
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: myapp.local
+  path: /
+
+persistence:
+  enabled: false
