@@ -14,7 +14,8 @@ ingress:
   ingressClassName: nginx
   hosts:
     - host: portainer.local
-      paths: /
+      paths:
+        - path: /
       pathType: Prefix
 
 resources:
