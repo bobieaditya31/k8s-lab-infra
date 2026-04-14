@@ -1,7 +1,7 @@
 global:
   image:
     tag: ""
-    domain: "argocd.local"
+    domain: argocd.local
 
 configs:
   params:
