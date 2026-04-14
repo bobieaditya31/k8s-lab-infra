@@ -11,7 +11,6 @@ spec:
     repoURL: https://github.com/bobieaditya31/k8s-lab-infra
     targetRevision: HEAD
     path: argocd
-
     directory:
       recurse: true
 
@@ -23,3 +22,9 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Application
+      jsonPointers:
+        - /status
