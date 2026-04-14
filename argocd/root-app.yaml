@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/bobieaditya31/k8s-lab-infra
     targetRevision: HEAD
-    path: argocd/apps   # 👈 scan semua app di sini
+    path: argocd/apps
 
   destination:
     server: https://kubernetes.default.svc

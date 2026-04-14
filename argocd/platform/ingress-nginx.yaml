@@ -15,11 +15,11 @@ spec:
     helm:
       values: |
         controller:
-          service:
-            type: NodePort
-
           hostPort:
             enabled: true
+
+          service:
+            type: ClusterIP
 
           ingressClassResource:
             name: nginx
