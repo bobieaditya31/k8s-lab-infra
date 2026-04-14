@@ -8,7 +8,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/USERNAME/k8s-lab-infra
+    repoURL: https://github.com/bobieaditya31/k8s-lab-infra
     targetRevision: HEAD
     path: charts/app-template
 
