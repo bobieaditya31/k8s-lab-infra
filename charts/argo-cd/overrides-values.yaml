@@ -1,0 +1,12 @@
+server:
+  persistence:
+    enabled: true
+    existingClaim: argocd-nfs-pvc
+
+repoServer:
+  persistence:
+    enabled: true
+    existingClaim: argocd-nfs-pvc
+
+applicationSet:
+  enabled: true
