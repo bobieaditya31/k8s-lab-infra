@@ -5,6 +5,8 @@ global:
 configs:
   params:
     server.insecure: true   # biar bisa HTTP (untuk homelab)
+    cm:
+      application.instanceLabelKey: argocd.argoproj.io/instance
 
 # ========================
 # ArgoCD Server (UI/API)
@@ -108,7 +110,3 @@ dex:
 # ========================
 notifications:
   enabled: false
-
-configs:
-  cm:
-   application.instanceLabelKey: argocd.argoproj.io/instance
