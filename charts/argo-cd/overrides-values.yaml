@@ -6,7 +6,10 @@ global:
 
 configs:
   params:
-    server.insecure: true   # biar bisa HTTP (untuk homelab)
+    server.insecure: true
+    server.disable.auth: false
+    server.basehref: /
+    server.rootpath: ""
   cm:
     application.instanceLabelKey: argocd.argoproj.io/instance
 
@@ -28,13 +31,18 @@ server:
     paths:
       - /
     pathType: Prefix
-    
+
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+      nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+      
 
   extraArgs:
     - --insecure
+    - --basehref=/
+    - --rootpath=
 
   resources:
     limits:
