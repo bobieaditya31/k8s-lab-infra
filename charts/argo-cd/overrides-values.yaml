@@ -60,7 +60,7 @@ repoServer:
 controller:
   replicas: 1
 
-    persistence:
+  persistence:
     enabled: true
     storageClass: nfs-client
     accessModes:
