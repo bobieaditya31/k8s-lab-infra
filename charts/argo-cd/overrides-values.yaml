@@ -1,14 +1,15 @@
 global:
   domain: argocd.local
-  image:
-    tag: ""
 
 configs:
   params:
-    server.insecure: true   # biar bisa HTTP (untuk homelab)
+    server.insecure: true
+
+  cm:
+    application.instanceLabelKey: argocd.argoproj.io/instance
 
 # ========================
-# ArgoCD Server (UI/API)
+# ArgoCD Server
 # ========================
 server:
   replicas: 1
@@ -19,23 +20,20 @@ server:
   ingress:
     enabled: true
     ingressClassName: nginx
+
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+
     hosts:
       - argocd.local
+
     paths:
       - /
-    pathType: Prefix
 
   extraArgs:
     - --insecure
 
-  resources:
-    limits:
-      memory: 512Mi
-      cpu: 300m
-    requests:
-      memory: 256Mi
-      cpu: 100m
-
   persistence:
     enabled: true
     storageClass: nfs-client
@@ -44,67 +42,42 @@ server:
     size: 5Gi
 
 # ========================
-# Repo Server (Git clone/cache)
+# Repo Server
 # ========================
 repoServer:
   replicas: 1
 
-  resources:
-    limits:
-      memory: 512Mi
-      cpu: 300m
-    requests:
-      memory: 256Mi
-      cpu: 100m
+  persistence:
+    enabled: true
+    storageClass: nfs-client
+    accessModes:
+      - ReadWriteMany
+    size: 5Gi
+
+# ========================
+# Controller
+# ========================
+controller:
+  replicas: 1
+
+# ========================
+# Redis
+# ========================
+redis:
+  enabled: true
 
   persistence:
     enabled: true
     storageClass: nfs-client
     accessModes:
       - ReadWriteOnce
-    size: 5Gi
-
-# ========================
-# Application Controller
-# ========================
-controller:
-  replicas: 1
-
-  resources:
-    limits:
-      memory: 1Gi
-      cpu: 500m
-    requests:
-      memory: 512Mi
-      cpu: 200m
-
-# ========================
-# Redis (internal cache)
-# ========================
-redis:
-  enabled: true
-
-  resources:
-    limits:
-      memory: 256Mi
-      cpu: 200m
-    requests:
-      memory: 128Mi
-      cpu: 50m
-
-  persistence:
-    enabled: true
-    storageClass: nfs-client
     size: 2Gi
 
 # ========================
-# Dex (optional auth)
+# Optional
 # ========================
 dex:
   enabled: false
 
-# ========================
-# Notifications (optional)
-# ========================
 notifications:
   enabled: false
