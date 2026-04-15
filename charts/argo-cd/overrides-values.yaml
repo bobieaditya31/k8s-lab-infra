@@ -36,15 +36,16 @@ server:
       
 
   extraArgs:
-  extraArgs:
-  extraArgs:
     - --insecure
     - --basehref=/
-      memory: 512Mi
-      cpu: 300m
-    requests:
-      memory: 256Mi
-      cpu: 100m
+
+  resources:
+   limits:
+    memory: 512Mi
+    cpu: 300m
+   requests:
+    memory: 256Mi
+    cpu: 100m
 
   persistence:
     enabled: true
