@@ -27,9 +27,9 @@ server:
 
     hosts:
       - argocd.local
-
     paths:
-      - /
+      -path: /
+        pathType: Prefix
 
   extraArgs:
     - --insecure
