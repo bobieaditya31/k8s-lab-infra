@@ -26,10 +26,10 @@ server:
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 
     hosts:
-      - argocd.local
-    paths:
-      -path: /
-        pathType: Prefix
+      - host: argocd.local
+        paths:
+          - path: /
+            pathType: Prefix
 
   extraArgs:
     - --insecure
