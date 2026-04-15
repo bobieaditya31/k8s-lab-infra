@@ -66,6 +66,7 @@ repoServer:
 
   persistence:
     enabled: true
+    storageClass: nfs-client
     accessModes:
       - ReadWriteOnce
     size: 5Gi
