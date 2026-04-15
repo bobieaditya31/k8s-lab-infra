@@ -60,6 +60,13 @@ repoServer:
 controller:
   replicas: 1
 
+    persistence:
+    enabled: true
+    storageClass: nfs-client
+    accessModes:
+      - ReadWriteOnce
+    size: 2Gi
+
 # ========================
 # Redis
 # ========================
