@@ -22,11 +22,13 @@ server:
   ingress:
     enabled: true
     ingressClassName: nginx
+
     hosts:
       - argocd.local
     paths:
       - /
     pathType: Prefix
+    
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
