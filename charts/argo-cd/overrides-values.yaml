@@ -7,8 +7,8 @@ global:
 configs:
   params:
     server.insecure: true   # biar bisa HTTP (untuk homelab)
-    cm:
-      application.instanceLabelKey: argocd.argoproj.io/instance
+  cm:
+    application.instanceLabelKey: argocd.argoproj.io/instance
 
 # ========================
 # ArgoCD Server (UI/API)
@@ -28,10 +28,8 @@ server:
       - /
     pathType: Prefix
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-      nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
 
   extraArgs:
     - --insecure
@@ -46,6 +44,7 @@ server:
 
   persistence:
     enabled: true
+    storageClass: nfs-client
     accessModes:
       - ReadWriteOnce
     size: 5Gi
@@ -68,7 +67,7 @@ repoServer:
     enabled: true
     storageClass: nfs-client
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     size: 5Gi
 
 # ========================
@@ -101,6 +100,9 @@ redis:
 
   persistence:
     enabled: true
+    storageClass: nfs-client
+    accessModes:
+      - ReadWriteOnce
     size: 2Gi
 
 # ========================
