@@ -1,16 +1,12 @@
 global:
   domain: argocd.local
   image:
-    tag: ""
   
 
 configs:
   params:
-    server.insecure: true
-    server.disable.auth: false
+    server.insecure: false
     server.basehref: /
-    server.rootpath: ""
-  cm:
     application.instanceLabelKey: argocd.argoproj.io/instance
 
 # ========================
@@ -40,12 +36,10 @@ server:
       
 
   extraArgs:
+  extraArgs:
+  extraArgs:
     - --insecure
     - --basehref=/
-    - --rootpath=
-
-  resources:
-    limits:
       memory: 512Mi
       cpu: 300m
     requests:
@@ -56,9 +50,9 @@ server:
     enabled: true
     storageClass: nfs-client
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     size: 5Gi
-
+    size: 5Gi
 # ========================
 # Repo Server (Git clone/cache)
 # ========================
@@ -112,17 +106,19 @@ redis:
     enabled: true
     storageClass: nfs-client
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     size: 2Gi
 
 # ========================
 # Dex (optional auth)
 # ========================
 dex:
+  # Dex is disabled because external authentication is not planned for this deployment.
   enabled: false
 
 # ========================
 # Notifications (optional)
-# ========================
+# Notifications are disabled intentionally; enable if notification features are required in your environment.
 notifications:
+  enabled: false
   enabled: false
