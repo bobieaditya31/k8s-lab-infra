@@ -1,13 +1,11 @@
 global:
   domain: argocd.local
   image:
-  
+    tag: ""
 
 configs:
   params:
-    server.insecure: false
-    server.basehref: /
-    application.instanceLabelKey: argocd.argoproj.io/instance
+    server.insecure: true   # biar bisa HTTP (untuk homelab)
 
 # ========================
 # ArgoCD Server (UI/API)
@@ -21,39 +19,30 @@ server:
   ingress:
     enabled: true
     ingressClassName: nginx
-
     hosts:
       - argocd.local
     paths:
       - /
     pathType: Prefix
 
-    annotations:
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-      nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-      
-
   extraArgs:
     - --insecure
-    - --basehref=/
 
   resources:
-   limits:
-    memory: 512Mi
-    cpu: 300m
-   requests:
-    memory: 256Mi
-    cpu: 100m
+    limits:
+      memory: 512Mi
+      cpu: 300m
+    requests:
+      memory: 256Mi
+      cpu: 100m
 
   persistence:
     enabled: true
     storageClass: nfs-client
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     size: 5Gi
-    size: 5Gi
+
 # ========================
 # Repo Server (Git clone/cache)
 # ========================
@@ -72,7 +61,7 @@ repoServer:
     enabled: true
     storageClass: nfs-client
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     size: 5Gi
 
 # ========================
@@ -106,20 +95,16 @@ redis:
   persistence:
     enabled: true
     storageClass: nfs-client
-    accessModes:
-      - ReadWriteMany
     size: 2Gi
 
 # ========================
 # Dex (optional auth)
 # ========================
 dex:
-  # Dex is disabled because external authentication is not planned for this deployment.
   enabled: false
 
 # ========================
 # Notifications (optional)
-# Notifications are disabled intentionally; enable if notification features are required in your environment.
+# ========================
 notifications:
-  enabled: false
   enabled: false
