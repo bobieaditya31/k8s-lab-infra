@@ -1,21 +1,25 @@
 replicaCount: 2
 
-image:
-  repository: bobieaditya03/myapp
-  tag: v10
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 100
+        podAffinityTerm:
+          topologyKey: kubernetes.io/hostname
+          labelSelector:
+            matchLabels:
+              app: myapp
 
-service:
-  type: ClusterIP
-  port: 80
-
-ingress:
-  enabled: true
-  className: nginx
-  host: myapp.local
-  path: /
+topologySpreadConstraints:
+  - maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfiable: ScheduleAnyway
+    labelSelector:
+      matchLabels:
+        app: myapp
 
 persistence:
   enabled: true
   size: "5Gi"
   storageClass: nfs-client
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
