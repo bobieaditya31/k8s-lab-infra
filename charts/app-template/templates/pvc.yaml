@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=none
 {{/* PVC Template */}}
 {{- if .Values.persistence.enabled }}
 apiVersion: v1
