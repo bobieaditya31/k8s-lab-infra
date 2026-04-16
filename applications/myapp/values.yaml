@@ -20,6 +20,6 @@ topologySpreadConstraints:
 
 persistence:
   enabled: true
-  size: "5Gi"
+  size: "2Gi"
   storageClass: nfs-client
   accessMode: ReadWriteMany
