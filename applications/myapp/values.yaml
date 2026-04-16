@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: bobieaditya03/myapp
-  tag: v9
+  tag: v10
 
 service:
   type: ClusterIP
