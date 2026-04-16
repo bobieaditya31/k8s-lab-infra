@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: bobieaditya03/myapp
@@ -15,4 +15,7 @@ ingress:
   path: /
 
 persistence:
-  enabled: false
+  enabled: true
+  size: "5Gi"
+  storageClass: nfs-client
+  accessMode: ReadWriteOnce
