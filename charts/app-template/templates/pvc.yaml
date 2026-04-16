@@ -11,4 +11,5 @@ spec:
   resources:
     requests:
       storage: 2Gi
+  storageClassName: {{ .Values.persistence.storageClassName | quote }}
 {{- end }}
