@@ -3,7 +3,7 @@ replicaCount: 3
 
 image:
   repository: bobieaditya03/restaurant-frontend
-  tag: "v5"
+  tag: "v6"
   pullPolicy: IfNotPresent
 
 nameOverride: "demo-apps02"
