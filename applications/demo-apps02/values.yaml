@@ -12,7 +12,6 @@ fullnameOverride: "demo-apps02"
 service:
   type: ClusterIP
   port: 80
-  targetPort: 3000          # Port 3000 (Express default)
 
 ingress:
   enabled: true
@@ -22,7 +21,6 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-
 persistence:
   enabled: false             # Frontend tidak perlu persistence
 
