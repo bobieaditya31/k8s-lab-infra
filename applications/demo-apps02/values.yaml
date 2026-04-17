@@ -1,7 +1,7 @@
 # Restaurant Frontend App Configuration
 image:
   repository: bobieaditya03/restaurant-frontend
-  tag: "v1"
+  tag: "v6"
   pullPolicy: IfNotPresent
 
 nameOverride: "demo-apps02"
