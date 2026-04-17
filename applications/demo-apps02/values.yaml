@@ -1,4 +1,6 @@
 # Restaurant Frontend App Configuration
+replicaCount: 3
+
 image:
   repository: bobieaditya03/restaurant-frontend
   tag: "v6"
@@ -14,7 +16,7 @@ service:
 
 ingress:
   enabled: true
-  className: "nginx"
+  className: nginx
   hosts:
     - host: restaurant.local
       paths:
