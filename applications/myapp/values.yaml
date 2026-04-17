@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: bobieaditya03/myapp
-  tag: v14
+  tag: v18
 
 service:
   type: ClusterIP
