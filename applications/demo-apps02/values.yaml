@@ -1,0 +1,47 @@
+# Restaurant Frontend App Configuration
+image:
+  repository: bobieaditya03/restaurant-frontend
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+nameOverride: "demo-apps02"
+fullnameOverride: "demo-apps02"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000          # Port 3000 (Express default)
+
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - host: restaurant.local
+      paths:
+        - path: /
+          pathType: Prefix
+
+persistence:
+  enabled: false             # Frontend tidak perlu persistence
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 3000
+  initialDelaySeconds: 10
+  periodSeconds: 30
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 3000
+  initialDelaySeconds: 5
+  periodSeconds: 10
