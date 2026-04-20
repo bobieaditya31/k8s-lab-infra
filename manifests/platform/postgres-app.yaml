@@ -7,23 +7,13 @@ spec:
   project: default
 
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: postgresql
-    targetRevision: "15.2.5"
+    repoURL: https://github.com/bobieaditya31/k8s-lab-infra
+    targetRevision: main
+    path: charts/postgresql
 
     helm:
-      values: |
-        auth:
-          postgresPassword: admin123
-          username: myuser
-          password: mypassword
-          database: mydb
-        primary:
-          persistence:
-            enabled: true
-            storageClass: nfs-client
-            accessMode: ReadWriteOnce
-            size: 10Gi
+      valueFiles:
+        - values.yaml
 
   destination:
     server: https://kubernetes.default.svc
