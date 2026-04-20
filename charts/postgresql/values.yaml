@@ -1,35 +1,33 @@
-postgresql:
-  image:
-    registry: ghcr.io
-    repository: bitnami/postgresql
-    tag: 16.3.0
-  
-  service:
-    type: ClusterIP
-    port: 5432
-    ports:
-      postgresql: 5432
-      
-  auth:
-    postgresPassword: admin123
-    username: myuser
-    password: mypassword
-    database: mydb
+image:
+  registry: ghcr.io
+  repository: bitnami/postgresql
+  tag: 16.3.0
 
-  primary:
-    persistence:
-      enabled: true
-      storageClass: nfs-client
-      accessModes:
-        - ReadWriteOnce
-      size: 10Gi
+auth:
+  postgresPassword: admin123
+  username: myuser
+  password: mypassword
+  database: mydb
 
-  metrics:
-    enabled: false
+primary:
+  persistence:
+    enabled: true
+    storageClass: nfs-client
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
 
-  tests:
-    enabled: false
-
-# 🔥 FIX untuk template test yang buggy
 service:
+  type: ClusterIP
   port: 5432
+  ports:
+    postgresql: 5432
+
+serviceAccount:
+  create: true
+
+metrics:
+  enabled: false
+
+tests:
+  enabled: false
