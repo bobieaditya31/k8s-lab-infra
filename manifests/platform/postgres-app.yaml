@@ -12,6 +12,7 @@ spec:
     path: charts/postgresql/overrides-values.yaml
 
     helm:
+      releaseName: postgresql
       valueFiles:
         -values.yaml
         - overrides-values.yaml
