@@ -9,13 +9,13 @@ spec:
   source:
     repoURL: https://github.com/bobieaditya31/k8s-lab-infra
     targetRevision: main
-    path: charts/postgresql/overrides-values.yaml
+    path: charts/postgresql   # ✅ HARUS FOLDER
 
     helm:
       releaseName: postgresql
       valueFiles:
-        -values.yaml
-        - overrides-values.yaml
+        - values.yaml          # ✅ base
+        - overrides-values.yaml # ✅ override
 
   destination:
     server: https://kubernetes.default.svc
