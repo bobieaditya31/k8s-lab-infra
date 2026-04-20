@@ -1,0 +1,15 @@
+auth:
+  postgresPassword: admin123
+  username: myuser
+  password: mypassword
+  database: mydb
+
+primary:
+  persistence:
+    enabled: true
+    storageClass: nfs-client
+    accessMode: ReadWriteOnce
+    size: 10Gi
+
+service:
+  type: ClusterIP
