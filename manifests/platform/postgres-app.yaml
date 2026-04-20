@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: postgresql
-    targetRevision: "15.5.0"
+    targetRevision: "15.2.5"
 
     helm:
       values: |
@@ -24,8 +24,6 @@ spec:
             storageClass: nfs-client
             accessMode: ReadWriteOnce
             size: 10Gi
-        image:
-          tag: 15.6.0-debian-12-r0
 
   destination:
     server: https://kubernetes.default.svc

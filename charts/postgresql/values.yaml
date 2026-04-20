@@ -8,8 +8,12 @@ primary:
   persistence:
     enabled: true
     storageClass: nfs-client
-    accessMode: ReadWriteOnce
     size: 10Gi
+    accessModes:
+      - ReadWriteOnce
 
 service:
   type: ClusterIP
+
+metrics:
+  enabled: false
