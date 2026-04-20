@@ -11,10 +11,6 @@ spec:
     targetRevision: main
     path: charts/postgresql
 
-    helm:
-      valueFiles:
-        - charts/postgresql/values.yaml
-
   destination:
     server: https://kubernetes.default.svc
     namespace: database
