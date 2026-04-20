@@ -11,6 +11,11 @@ spec:
     targetRevision: main
     path: charts/postgresql
 
+    helm:
+      releaseName: postgresql
+      valueFiles:
+        - overrides-values.yaml
+
   destination:
     server: https://kubernetes.default.svc
     namespace: database
