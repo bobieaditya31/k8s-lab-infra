@@ -24,6 +24,8 @@ spec:
             storageClass: nfs-client
             accessMode: ReadWriteOnce
             size: 10Gi
+        image:
+          tag: 15.8.0-debian-11-r0
 
   destination:
     server: https://kubernetes.default.svc
