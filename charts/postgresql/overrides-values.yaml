@@ -1,24 +1,28 @@
-image:
-  registry: ghcr.io
-  repository: bitnami/postgresql
-  tag: 16.3.0
+postgresql:
+  image:
+    registry: ghcr.io
+    repository: bitnami/postgresql
+    tag: 16.3.0
 
-auth:
-  postgresPassword: admin123
-  username: myuser
-  password: mypassword
-  database: mydb
+  auth:
+    postgresPassword: admin123
+    username: myuser
+    password: mypassword
+    database: mydb
 
-primary:
-  persistence:
-    enabled: true
-    storageClass: nfs-client
-    accessModes:
-      - ReadWriteOnce
-    size: 10Gi
+  primary:
+    persistence:
+      enabled: true
+      storageClass: nfs-client
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
 
-metrics:
-  enabled: false
+  metrics:
+    enabled: false
 
-tests:
-  enabled: false
+  tests:
+    enabled: false
+
+  service:
+    port: 5432
