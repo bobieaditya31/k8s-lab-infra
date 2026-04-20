@@ -6,11 +6,10 @@ postgresql:
   
   service:
     type: ClusterIP
+    port: 5432
     ports:
-      - name: postgresql
-        port: 5432
-        targetPort: postgresql
-
+      postgresql: 5432
+      
   auth:
     postgresPassword: admin123
     username: myuser
