@@ -21,7 +21,8 @@ spec:
         primary:
           persistence:
             enabled: true
-            storageClass: your-storage-class
+            storageClass: nfs-client
+            accessMode: ReadWriteOnce
             size: 10Gi
 
   destination:
