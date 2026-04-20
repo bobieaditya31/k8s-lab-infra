@@ -3,6 +3,13 @@ postgresql:
     registry: ghcr.io
     repository: bitnami/postgresql
     tag: 16.3.0
+  
+  service:
+    type: ClusterIP
+    ports:
+      - name: postgresql
+        port: 5432
+        targetPort: postgresql
 
   auth:
     postgresPassword: admin123
