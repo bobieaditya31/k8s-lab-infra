@@ -7,9 +7,9 @@ spec:
   project: default
 
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: postgresql
-    targetRevision: "15.5.0"
+    repoURL: https://github.com/bobieaditya31/k8s-lab-infra
+    targetRevision: main
+    path: charts/postgresql
 
     helm:
       valueFiles:
