@@ -26,3 +26,10 @@ postgresql:
 
   metrics:
     enabled: false
+
+  tests:
+    enabled: false
+
+# 🔥 FIX untuk template test yang buggy
+service:
+  port: 5432
