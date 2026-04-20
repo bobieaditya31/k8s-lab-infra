@@ -7,13 +7,13 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/bobieaditya31/k8s-lab-infra
-    targetRevision: main
-    path: charts/postgresql
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: postgresql
+    targetRevision: "15.5.0"
 
     helm:
       valueFiles:
-        - values.yaml
+        - charts/postgresql/values.yaml
 
   destination:
     server: https://kubernetes.default.svc
