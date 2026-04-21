@@ -1,6 +1,6 @@
 postgresql:
   image:
-    registry: ghcr.io
+    registry: docker.io
     repository: bitnami/postgresql
     tag: latest
 
