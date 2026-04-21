@@ -14,6 +14,7 @@ spec:
     helm:
       releaseName: postgresql
       valueFiles:
+        - values.yaml # ✅ default
         - overrides-values.yaml # ✅ override
 
   destination:
