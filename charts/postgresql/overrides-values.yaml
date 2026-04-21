@@ -40,7 +40,7 @@ tests:
   enabled: false
 
 service:
-  type: NodePort
-  nodePort: 30432
-  port: 5432
+    type: NodePort
+    nodePorts:
+      postgresql: 30432
 
