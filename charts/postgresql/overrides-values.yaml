@@ -7,7 +7,7 @@ auth:
   postgresPassword: admin123
   username: myuser
   password: mypassword
-  database: mydb
+  database: homeladb
 
 primary:
   persistence:
@@ -40,5 +40,7 @@ tests:
   enabled: false
 
 service:
+  type: NodePort
+  nodePort: 30432
   port: 5432
 
