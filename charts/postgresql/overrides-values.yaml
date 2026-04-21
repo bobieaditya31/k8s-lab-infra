@@ -16,6 +16,22 @@ primary:
     accessModes:
       - ReadWriteOnce
     size: 10Gi
+  
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+    successThreshold: 1
+
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+    successThreshold: 1
 
 metrics:
   enabled: false
@@ -25,3 +41,4 @@ tests:
 
 service:
   port: 5432
+
