@@ -16,6 +16,11 @@ primary:
     accessModes:
       - ReadWriteOnce
     size: 10Gi
+    
+  service:
+    type: NodePort
+    nodePorts:
+      postgresql: 30432
   
   readinessProbe:
     enabled: true
@@ -38,9 +43,3 @@ metrics:
 
 tests:
   enabled: false
-
-service:
-    type: NodePort
-    nodePorts:
-      postgresql: 30432
-
