@@ -11,9 +11,13 @@ service:
 ingress:
   enabled: true
   className: nginx
-  host: myapp.local
-  path: /
 
+  hosts:
+    - host: myapp.local
+      paths:
+        - path: /
+          pathType: Prefix
+        
 affinity:
   podAntiAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
