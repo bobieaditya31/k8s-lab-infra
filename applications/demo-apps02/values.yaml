@@ -1,5 +1,5 @@
 # Restaurant Frontend App Configuration
-replicaCount: 3
+replicaCount: 2
 
 image:
   repository: bobieaditya03/restaurant-frontend
