@@ -3,7 +3,7 @@ replicaCount: 2
 
 image:
   repository: bobieaditya03/cafe-frontend
-  tag: "v5"
+  tag: "v50"
   pullPolicy: IfNotPresent
 
 nameOverride: "demo-apps03"
