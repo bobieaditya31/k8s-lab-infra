@@ -3,7 +3,7 @@ replicaCount: 2
 
 image:
   repository: bobieaditya03/demo-apps04
-  tag: "v6"
+  tag: "b9254a4"
   pullPolicy: Always
 
 nameOverride: "demo-apps04"
