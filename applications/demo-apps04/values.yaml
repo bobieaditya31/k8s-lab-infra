@@ -1,0 +1,49 @@
+# Cafe Frontend App Configuration
+replicaCount: 2
+
+image:
+  repository: bobieaditya03/demo-apps04
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+nameOverride: "demo-apps04"
+fullnameOverride: "demo-apps04"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: hotel.local
+      paths:
+        - path: /
+          pathType: Prefix
+          
+persistence:
+  enabled: false             # Frontend tidak perlu persistence
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 3000
+  initialDelaySeconds: 10
+  periodSeconds: 30
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: 3000
+  initialDelaySeconds: 5
+  periodSeconds: 10
