@@ -3,7 +3,7 @@ replicaCount: 2
 
 image:
   repository: bobieaditya03/demo-apps04
-  tag: "v3"
+  tag: "v5"
   pullPolicy: IfNotPresent
 
 nameOverride: "demo-apps04"
