@@ -4,7 +4,7 @@ replicaCount: 2
 image:
   repository: bobieaditya03/demo-apps04
   tag: "v5"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 nameOverride: "demo-apps04"
 fullnameOverride: "demo-apps04"
