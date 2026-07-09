@@ -19,7 +19,7 @@ server:
 
   ingress:
     enabled: true
-    ingressClassName: nginx
+    ingressClassName: traefik
 
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
