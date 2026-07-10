@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: bobieaditya03/myapp
@@ -13,7 +13,7 @@ service:
 
 ingress:
   enabled: true
-  className: nginx
+  className: traefik
 
   hosts:
     - host: myapp.local
