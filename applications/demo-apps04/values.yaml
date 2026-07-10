@@ -26,6 +26,9 @@ ingress:
 persistence:
   enabled: false             # Frontend tidak perlu persistence
 
+nodeSelector:
+  node-role.kubernetes.io/worker: "true"
+
 resources:
   limits:
     cpu: 200m
