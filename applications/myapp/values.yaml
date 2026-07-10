@@ -39,8 +39,8 @@ topologySpreadConstraints:
       matchLabels:
         app: myapp
 
-persistence:
-  enabled: true
-  size: "2Gi"
-  storageClassName: nfs-client
-  accessMode: ReadWriteMany
+# persistence:
+#   enabled: true
+#   size: "2Gi"
+#   storageClassName: nfs-client
+#   accessMode: ReadWriteMany
