@@ -1,5 +1,5 @@
 # Cafe Frontend App Configuration
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: bobieaditya03/demo-apps04
