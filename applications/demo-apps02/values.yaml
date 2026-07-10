@@ -1,5 +1,5 @@
 # Restaurant Frontend App Configuration
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: bobieaditya03/restaurant-frontend
@@ -16,7 +16,7 @@ service:
 
 ingress:
   enabled: true
-  className: nginx
+  className: traefik
   hosts:
     - host: restaurant.local
       paths:
