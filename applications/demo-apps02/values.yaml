@@ -2,8 +2,8 @@
 replicaCount: 1
 
 image:
-  repository: bobieaditya03/restaurant-frontend
-  tag: "v18"
+  repository: ghcr.io/bobieaditya31/restaurant-frontend
+  tag: latest
   pullPolicy: IfNotPresent
 
 nameOverride: "demo-apps02"
