@@ -3,7 +3,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/bobieaditya31/restaurant-frontend
-  tag: v4
+  tag: v5
   pullPolicy: IfNotPresent
 
 nameOverride: "demo-apps02"
